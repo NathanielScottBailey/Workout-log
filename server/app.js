@@ -10,29 +10,7 @@ var User= seq.import('./models/user');
 User.sync()
 app.use(bodyParser.json())
 
-app.post('/api/user', function(req,res){
-	var username = req.body.user.username
-	var pass = req.body.user.password
-
-
-
-User.create({
-	username: username,
-	passwordhash: ""
-	}).then(
-		function createSuccess(user){
-			res.json({
-				user: user,
-				message: 'create'
-			})
-		},
-		function createError(err){
-			res.send(500, err.message)
-		}
-
-		)
-})
-
+app.use('/api/user', require('./routes/user'))
 app.use('/api/test', function(req,res){
 	res.send("Hello World");
 });
