@@ -1,39 +1,18 @@
 var express= require('express');
 var app= express();
-var Sequelize = require('sequelize');
 app.use(require('./middleware/header'));
 //name of the data base, database type, and since its postgres the password I use for it
 var bodyParser= require('body-parser');
+var seq= require('./db.js')
+var User= seq.import('./models/user');
 
-
-var seq = new Sequelize('workoutlog', 'postgres', 'Rudy18nat',{
-	host:'localhost',
-	dialect: 'postgres'
-});
-
-
-
-seq.authenticate().then(
-	function(){
-		console.log("You're connected to the pg database")
-	},
-		function(err){
-			console.log(err)
-})
-
-
-var User= seq.define('user',{
-
-	username: Sequelize.STRING,
-	passwordhash: Sequelize.STRING
-})
 
 User.sync()
 app.use(bodyParser.json())
 
 app.post('/api/user', function(req,res){
-	var username= req.body.user.username
-	var pass= req.body.user.password
+	var username = req.body.user.username
+	var pass = req.body.user.password
 
 
 
