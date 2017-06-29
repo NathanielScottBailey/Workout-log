@@ -37,7 +37,7 @@ $(document).ready(function(){
 		}
 
 		if(target === "#history"){
-			WorkoutLog.log.setHistory();
+			WorkoutLog.setHistory();
 		}
 	})
 

@@ -15,6 +15,6 @@ seq.authenticate().then(
 		function(err){
 			console.log(err)
 })
-
 var User= seq.import('./models/user');
+var Definition= seq.import('./models/definition.js')
 module.exports=seq
