@@ -32,5 +32,7 @@ $(document).ready(function(){
 		}
 	})
 
-	$('#def-save').on('click', WorkoutLog.definition.create)
+	$('#def-save').on('click', function(){
+		WorkoutLog.definition.create
+		$()
 })

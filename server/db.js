@@ -17,4 +17,5 @@ seq.authenticate().then(
 })
 var User= seq.import('./models/user');
 var Definition= seq.import('./models/definition.js')
+var Log= seq.import('./models/log.js')
 module.exports=seq
