@@ -26,13 +26,13 @@ $(document).ready(function(){
 
 			fetchAll: function(){
 				if(window.localStorage.getItem("sessionToken")){
-					WorkoutLog.definition.fetchAll()
+					WorkoutLog.definition.userDefinition
 				}
 			}
 		}
 	})
 
 	$('#def-save').on('click', function(){
-		WorkoutLog.definition.create
-		$()
+		WorkoutLog.definition.create()
+})
 })
